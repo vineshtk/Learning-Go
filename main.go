@@ -18,16 +18,25 @@ func main() {
 	fmt.Printf("Total %v slots and %v slots are still available to book.\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your tickets here!")
 
-	var userName string //user can input details here
+	var firstName string
+	var lastName string
+	var email string
 	var userTickets int
 
-	userName = "Tommy"
 	userTickets = 3
 
-	fmt.Printf("Thank you %v for showing your interest \n", userName)
-	fmt.Printf("You bought %v tickets for the event \n", userTickets)
+	//user can input details here this asks for user input
+	fmt.Println("Enter your first name: ")
+	// here '&firstName' is pointer which points toward the address of the variable 'firstName'
+	fmt.Scan(&firstName)
 
-	//getting the variable type
-	fmt.Printf("The type of variable conferenceName is %T \n", conferenceName)
+	fmt.Println("Enter your last name: ")
+	fmt.Scan(&lastName)
+
+	fmt.Println("Enter your email address: ")
+	fmt.Scan(&email)
+
+	fmt.Printf("Thank you %v for showing your interest \n", firstName)
+	fmt.Printf("You bought %v tickets for the event \n", userTickets)
 
 }
