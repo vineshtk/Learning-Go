@@ -22,7 +22,8 @@ func main() {
 	var lastName string
 	var email string
 	var userTickets int
-	var bookings [50]string // here [50] is the size of array and string is the type
+	// var bookings [50]string // here [50] is the size of array and string is the type
+	var bookings []string
 
 	//user can input details here this asks for user input
 	fmt.Println("Enter your first name: ")
@@ -39,7 +40,7 @@ func main() {
 	fmt.Scan(&userTickets)
 
 	remainingTickets = remainingTickets - userTickets
-	bookings[0] = firstName + " " + lastName
+	bookings = append(bookings, firstName+" "+lastName)
 
 	fmt.Printf("The whole array %v\n", bookings)
 	fmt.Printf("The first value %v\n", bookings[0])
@@ -47,5 +48,5 @@ func main() {
 	fmt.Printf("the length of array %v \n", len(bookings))
 
 	fmt.Printf("Thank you %v %v for showing your interest. You booked %v tickets,you will receive conformation email at %v shortly \n", firstName, lastName, userTickets, email)
-	fmt.Printf("%v tickets are available to book for %v \n", remainingTickets, conferenceName)
+	fmt.Printf("%v tickets remaining for %v \n", remainingTickets, conferenceName)
 }
