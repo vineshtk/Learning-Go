@@ -15,28 +15,11 @@ func main() {
 	var remainingTickets uint = 50
 	bookings := []string{}
 
-	// function call for greeting users
-	greetUser(conferenceName, conferenceTickets, remainingTickets)
-
-	var firstName string
-	var lastName string
-	var email string
-	var userTickets uint
-
 	for {
-		//user can input details here this asks for user input
-		fmt.Println("Enter your first name: ")
-		// here '&firstName' is pointer which points towards the address of the variable 'firstName'
-		fmt.Scan(&firstName)
 
-		fmt.Println("Enter your last name: ")
-		fmt.Scan(&lastName)
-
-		fmt.Println("Enter your email address: ")
-		fmt.Scan(&email)
-
-		fmt.Println("Enter number of tickets: ")
-		fmt.Scan(&userTickets)
+		// function call for greeting users
+		greetUser(conferenceName, conferenceTickets, remainingTickets)
+		firstName, lastName, email, userTickets := getUserInputs()
 
 		// user input validation
 		isValidName, isValidEmail, isValidTicketNumber := userInputValidation(firstName, lastName, email, remainingTickets, userTickets)
@@ -93,4 +76,27 @@ func userInputValidation(firstName string, lastName string, email string, remain
 	isValidTicketNumber := remainingTickets >= userTickets && userTickets > 0
 
 	return isValidName, isValidEmail, isValidTicketNumber
+}
+
+func getUserInputs() (string, string, string, uint) {
+	var firstName string
+	var lastName string
+	var email string
+	var userTickets uint
+
+	//user can input details here this asks for user input
+	fmt.Println("Enter your first name: ")
+	// here '&firstName' is pointer which points towards the address of the variable 'firstName'
+	fmt.Scan(&firstName)
+
+	fmt.Println("Enter your last name: ")
+	fmt.Scan(&lastName)
+
+	fmt.Println("Enter your email address: ")
+	fmt.Scan(&email)
+
+	fmt.Println("Enter number of tickets: ")
+	fmt.Scan(&userTickets)
+
+	return firstName, lastName, email, userTickets
 }
