@@ -3,6 +3,7 @@ package main
 
 // importing fmt package
 import (
+	"booking-app/helper"
 	"fmt"
 	"strings"
 )
@@ -24,7 +25,7 @@ func main() {
 		firstName, lastName, email, userTickets := getUserInputs()
 
 		// user input validation
-		isValidName, isValidEmail, isValidTicketNumber := userInputValidation(firstName, lastName, email, userTickets)
+		isValidName, isValidEmail, isValidTicketNumber := helper.UserInputValidation(firstName, lastName, email, userTickets, remainingTickets)
 
 		if isValidName && isValidEmail && isValidTicketNumber {
 
