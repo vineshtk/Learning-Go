@@ -5,6 +5,7 @@ package main
 import (
 	"booking-app/helper"
 	"fmt"
+	"time"
 )
 
 var conferenceName string = "Go conference"
@@ -117,6 +118,7 @@ func bookTicket(userTickets uint, firstName string, lastName string, email strin
 }
 
 func sendTicket(userTicket uint, firstName string, lastName string, email string) {
+	time.Sleep(10 * time.Second)
 	var ticket = fmt.Sprintf("%v Tickets for %v %v", userTicket, firstName, lastName)
 	fmt.Println("########################")
 	fmt.Printf("Sending ticket:\n%v \nto email address %v\n", ticket, email)
